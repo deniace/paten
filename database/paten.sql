@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2022 at 03:24 PM
+-- Generation Time: Apr 26, 2022 at 06:53 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -41,7 +41,9 @@ CREATE TABLE `disposisi` (
 --
 
 INSERT INTO `disposisi` (`id_disposisi`, `tgl_penyelesaian`, `dari`, `perihal`, `tgl_surat`, `no`) VALUES
-(2, '2022-02-04', 'sdf asdf asdf', 'asdf', '2022-02-28', '123');
+(2, '2022-02-04', 'sdf asdf asdf', 'asdf', '2022-02-28', '123'),
+(3, '2022-02-12', 'sdf asdf asdf', 'asdf', '2022-02-28', '123'),
+(5, '0000-00-00', 'ASDF ASDF ASF ASDF ASF ASF ASF ASDF ASDF ASDF ASDF', 'ASDF ASDF ASF ASDF ASF ASF ASF ASDF ASDF ASDF ASDF', '2022-02-12', '123/123/12312312');
 
 -- --------------------------------------------------------
 
@@ -61,7 +63,8 @@ CREATE TABLE `ektp` (
 --
 
 INSERT INTO `ektp` (`id_ektp`, `tgl`, `nik`, `keterangan`) VALUES
-(2, '2022-02-05', '123', 'asdf asdf');
+(2, '2022-02-05', '123', 'asdf asdf'),
+(6, '2022-03-05', '123', 'ini keterangan');
 
 -- --------------------------------------------------------
 
@@ -82,7 +85,9 @@ CREATE TABLE `kk` (
 --
 
 INSERT INTO `kk` (`id_kk`, `tgl`, `nik`, `alamat`, `keterangan`) VALUES
-(2, '2022-02-05', '123', 'asdfg', 'asdf');
+(2, '2022-02-05', '123', 'asdfg', 'asdf'),
+(3, '2022-03-05', '123', 'asdf', 'asdf asdf'),
+(4, '2022-02-12', '123', 'asdf', 'ini keterangan');
 
 -- --------------------------------------------------------
 
@@ -125,6 +130,13 @@ CREATE TABLE `proposal` (
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `proposal`
+--
+
+INSERT INTO `proposal` (`id_proposal`, `nama_lembaga`, `tgl_surat`, `perihal`, `tgl_penerimaan`, `alamat`, `no_hp`, `keterangan`) VALUES
+(2, 'Biro Perencanaan', '2022-03-04', 'asdf', '2022-03-23', 'asdf', '123 asdf', 'Ini Keterangan');
+
 -- --------------------------------------------------------
 
 --
@@ -135,10 +147,7 @@ CREATE TABLE `sktm` (
   `id_sktm` int(11) NOT NULL,
   `nomor_surat` varchar(50) NOT NULL,
   `tgl_surat` date NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `tempat_lahir` varchar(100) NOT NULL,
-  `tgl_lahir` date NOT NULL,
-  `alamat` varchar(255) NOT NULL,
+  `nik` varchar(20) NOT NULL,
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -146,8 +155,9 @@ CREATE TABLE `sktm` (
 -- Dumping data for table `sktm`
 --
 
-INSERT INTO `sktm` (`id_sktm`, `nomor_surat`, `tgl_surat`, `nama`, `tempat_lahir`, `tgl_lahir`, `alamat`, `keterangan`) VALUES
-(1, '422.5/07/ocd/2022', '2022-02-11', 'Dr. Ir. Muhammad Hudori, M.Si.', 'Karawang.', '1964-02-07', 'Karawang.', 'Ini Keterangan.');
+INSERT INTO `sktm` (`id_sktm`, `nomor_surat`, `tgl_surat`, `nik`, `keterangan`) VALUES
+(1, '12', '2022-03-04', '123', '123'),
+(7, '422.5/07/ocs/2022', '2022-03-04', '123', 'asdf');
 
 -- --------------------------------------------------------
 
@@ -164,6 +174,13 @@ CREATE TABLE `surat_keluar` (
   `tgl_pengiriman` date NOT NULL,
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `surat_keluar`
+--
+
+INSERT INTO `surat_keluar` (`id_surat_keluar`, `tgl_surat`, `no_surat`, `perihal`, `tujuan_surat`, `tgl_pengiriman`, `keterangan`) VALUES
+(2, '2022-03-05', 'asdf123', 'asdf asf', 'asdf', '2022-03-04', 'asdf asdf');
 
 -- --------------------------------------------------------
 
@@ -185,7 +202,8 @@ CREATE TABLE `surat_masuk` (
 --
 
 INSERT INTO `surat_masuk` (`tgl_surat`, `no_surat`, `perihal`, `asal_surat`, `tgl_terima`, `keterangan`) VALUES
-('2022-02-28', '123', 'asdf', 'sdf asdf asdf', '2022-02-05', 'Ini Keterangan asdf');
+('2022-02-28', '123', 'asdf', 'sdf asdf asdf', '2022-02-05', 'Ini Keterangan asdf'),
+('2022-02-12', '123/123/12312312', 'ASDF ASDF ASF ASDF ASF ASF ASF ASDF ASDF ASDF ASDF ASF ASDF ASDF ASF ASDF ASDF ASDFA SDFA SDFA SDFA SDF ASDFA SDF ASDF ASDF ASDF', 'sdf asdf', '2022-02-27', 'asdf asdf');
 
 -- --------------------------------------------------------
 
@@ -229,7 +247,9 @@ CREATE TABLE `surat_pindah` (
 --
 
 INSERT INTO `surat_pindah` (`id_surat_pindah`, `no_surat`, `tgl_masuk`, `nik`, `alamat_asal`, `tujuan_pindah`) VALUES
-(2, 'asdf123', '2022-02-02', '123', 'asdf', 'asdf');
+(2, 'asdf1231', '2022-02-02', '123', 'asdf', 'asdf'),
+(3, 'asdf123', '2022-03-29', '123', '', 'asdf'),
+(5, '123', '2022-03-26', '123', '', '123');
 
 -- --------------------------------------------------------
 
@@ -299,7 +319,8 @@ ALTER TABLE `proposal`
 -- Indexes for table `sktm`
 --
 ALTER TABLE `sktm`
-  ADD PRIMARY KEY (`id_sktm`);
+  ADD PRIMARY KEY (`id_sktm`),
+  ADD KEY `sktm_pddk` (`nik`);
 
 --
 -- Indexes for table `surat_keluar`
@@ -341,49 +362,49 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `disposisi`
 --
 ALTER TABLE `disposisi`
-  MODIFY `id_disposisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_disposisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ektp`
 --
 ALTER TABLE `ektp`
-  MODIFY `id_ektp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ektp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kk`
 --
 ALTER TABLE `kk`
-  MODIFY `id_kk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `proposal`
 --
 ALTER TABLE `proposal`
-  MODIFY `id_proposal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_proposal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sktm`
 --
 ALTER TABLE `sktm`
-  MODIFY `id_sktm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sktm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `surat_pencaker`
 --
 ALTER TABLE `surat_pencaker`
-  MODIFY `id_surat_pencaker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_surat_pencaker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `surat_pindah`
 --
 ALTER TABLE `surat_pindah`
-  MODIFY `id_surat_pindah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_surat_pindah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -412,6 +433,12 @@ ALTER TABLE `ektp`
 --
 ALTER TABLE `kk`
   ADD CONSTRAINT `kk_pddk` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`);
+
+--
+-- Constraints for table `sktm`
+--
+ALTER TABLE `sktm`
+  ADD CONSTRAINT `sktm_pddk` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`);
 
 --
 -- Constraints for table `surat_pencaker`
