@@ -1,0 +1,38 @@
+.carousel-indicators li {
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+}
+
+#section1 {
+	background-color: aqua;
+}
+
+#section2 {
+	background-color: seashell;
+}
+
+#section3 {
+	background-color: thistle;
+}
+
+#section4 {
+	background-color: silver;
+}
+
+#section5 {
+	background-color: wheat;
+}
+
+
+.side-slide {
+	position: fixed;
+	top: 45%;
+	right: -120px;
+	transition: .5s ease-in;
+}
+
+.side-slide :hover {
+	transition: .5s ease-out;
+	transform: translateX(-120px);
+}
