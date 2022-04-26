@@ -43,6 +43,7 @@ pass 123456
 ![Dashboard](https://github.com/deniace/paten/blob/main/screenshot/dahsboard.JPG)
 ![Disposisi](https://github.com/deniace/paten/blob/main/screenshot/disposisi.JPG)
 ![EKTP](https://github.com/deniace/paten/blob/main/screenshot/ektp.JPG)
+![Laporan](https://github.com/deniace/paten/blob/main/screenshot/laporan.JPG)
 ![Laporan PDF](https://github.com/deniace/paten/blob/main/screenshot/laporan_pdf.JPG)
 ![Login](https://github.com/deniace/paten/blob/main/screenshot/login.JPG)
 ![Penduduk](https://github.com/deniace/paten/blob/main/screenshot/penduduk.JPG)
